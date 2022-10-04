@@ -1,17 +1,18 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class UIElement here.
+ * This is a centralized class that handles all the UI elements on the game screen...
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author John Seong 
+ * @version 1.0
  */
-public class UIElement extends Actor
-{
+
+public class UIElement extends Actor {
     GreenfootImage image;
     Asteroid r;
     
     String imageName;
+    
     boolean onClickEvent;
     
     public UIElement(Asteroid r, String imageName, boolean onClickEvent, int scaleFactor) {
@@ -19,6 +20,10 @@ public class UIElement extends Actor
         this.imageName = imageName;
         this.onClickEvent = onClickEvent;
         
+        this.draw(r, imageName, scaleFactor);
+    }
+    
+    public void draw(Asteroid r, String imageName, int scaleFactor) {
         setImage(new GreenfootImage(imageName));
         
         image = getImage();
@@ -27,17 +32,26 @@ public class UIElement extends Actor
         setImage(image);
     }
     
-    public void act()
-    {
-        if (this.onClickEvent && Greenfoot.mouseClicked(this)) {
-            switch (this.imageName) {
-                case "decreaseButton.png":
-                    r.changeSizeOfSun(0.9);
-                    break;
-                case "increaseButton.png":
-                    r.changeSizeOfSun(1.1);
-                    break;
-            }
+    public void act() {
+        boolean clicked = this.onClickEvent && Greenfoot.mouseClicked(this);
+        
+        switch (this.imageName) {
+            case "decreaseButton.png":
+                if (clicked) {
+                    r.changeSizeOfSun(0.7);
+                    this.draw(r, "decreaseButtonSelected.png", 5);
+                } else {
+                    this.draw(r, "decreaseButton.png", 5);
+                }
+                break;
+            case "increaseButton.png":
+                if (clicked) {
+                    r.changeSizeOfSun(1.3);
+                    this.draw(r, "increaseButtonSelected.png", 5);
+                } else {
+                    this.draw(r, "increaseButton.png", 5);
+                }
+                break;
         }
     }
 }

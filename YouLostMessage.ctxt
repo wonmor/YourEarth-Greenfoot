@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.target=YouLostMessage
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ YouLostMessage\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=r
+comment1.target=YouLostMessage(Asteroid)
+numComments=2

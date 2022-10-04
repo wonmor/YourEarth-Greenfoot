@@ -1,0 +1,22 @@
+#BlueJ class context
+comment0.target=Asteroid
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Rocket\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=w\ c
+comment1.target=Asteroid(Game,\ Celestial)
+comment2.params=
+comment2.target=void\ setToInitConditions()
+comment3.params=distance\ angleSecondDeriv\ massOfTheSunKg
+comment3.target=double\ calculateDistanceAcceleration(double,\ double,\ double)
+comment4.params=distanceSecondDeriv\ angleSecondDeriv\ distance
+comment4.target=double\ calculateAngleAcceleration(double,\ double,\ double)
+comment5.params=currentValue\ deltaT\ derivative
+comment5.target=double\ performEulersMethod(double,\ double,\ double)
+comment6.params=solarMassMultiplier
+comment6.target=void\ changeSizeOfSun(double)
+comment7.params=deltaT
+comment7.target=void\ updatePosition(double)
+comment8.params=distance\ angle
+comment8.target=int[]\ getCartesianCoords(double,\ double)
+comment9.params=
+comment9.target=void\ act()
+numComments=10

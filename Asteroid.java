@@ -11,8 +11,7 @@ import java.time.temporal.ChronoUnit;
  * @version (a version number or a date)
  */
 
-public class Asteroid extends Actor
-{   
+public class Asteroid extends Actor {   
     private double massOfTheSunKg = Constants.massOfTheSunKg;
     
     private double distance = 0.0;
@@ -21,18 +20,26 @@ public class Asteroid extends Actor
     private double angle = 0.0;
     private double angleSecondDeriv = 0.0;
     
+    private double frameRate;
+    
     private Celestial c;
-    private MyWorld w;
+    private Game w;
     private YouLostMessage lm;
     
     private GreenfootImage image;
+    private FPSCounter fpsCounter;
     
-    public Asteroid(MyWorld w, Celestial c) {
+    public double deltaT = 3600 * this.frameRate / Constants.numberOfCalculationsPerFrame;
+    
+    public Asteroid(Game w, Celestial c) {
         this.w = w;
         this.c = c;
         
+        fpsCounter = new FPSCounter();
+        fpsCounter.run();
+        
         setToInitConditions();
-        updatePosition(Constants.deltaT);
+        updatePosition(this.deltaT);
         
         int[] coords = getCartesianCoords(this.distance, this.angle);
         setLocation(coords[0], coords[1]);
@@ -47,7 +54,7 @@ public class Asteroid extends Actor
         this.distance = Constants.earthSunDistanceMeters;
         this.distanceSecondDeriv = 0.00;
         
-        this.angle = Math.PI / 6 * MyWorld.getRandomNumber(2, 10);
+        this.angle = Math.PI / 6 * Game.getRandomNumber(2, 10);
         this.angleSecondDeriv = Constants.earthAngularVelocityMetersPerSecond * 1.5;
     }
     
@@ -65,8 +72,18 @@ public class Asteroid extends Actor
     }
     
     public void changeSizeOfSun(double solarMassMultiplier) {
+        // A guard clause...
+        if (solarMassMultiplier == 1) { return; }
+        
         this.massOfTheSunKg *= solarMassMultiplier;
-        this.c.scaleFactor *= solarMassMultiplier;
+        
+        if (solarMassMultiplier > 1) {
+            this.c.scaleFactor--;
+        } else {
+            this.c.scaleFactor++;
+        }
+        
+        this.c.scaleImage();
     }
     
     private void updatePosition(double deltaT) {
@@ -99,13 +116,20 @@ public class Asteroid extends Actor
     }
     
     public void act() {
+        this.frameRate = fpsCounter.fps();
+        
         for (int i = 0; i < Constants.numberOfCalculationsPerFrame; i++) {
-            updatePosition(Constants.deltaT);
+            updatePosition(this.deltaT);
         }
         
         int[] coords = getCartesianCoords(this.distance / Constants.scaleFactor, this.angle);
         
-        if (coords[0] <= Constants.screenWidth && coords[1] <= Constants.screenHeight) {
+        boolean xCoordInBound = coords[0] <= Constants.screenWidth && coords[0] > 0;
+        boolean yCoordInBound = coords[1] <= Constants.screenHeight && coords[1] > 0;
+        
+        System.out.println(xCoordInBound);
+        
+        if (xCoordInBound && yCoordInBound) {
             Star s = new Star(Color.RED);
             this.w.addObject(s, coords[0], coords[1]);
             

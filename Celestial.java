@@ -13,12 +13,15 @@ public class Celestial extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
 
-    GreenfootImage image;
+    private GreenfootImage image;
     
-    // The decreased the scale factor is, the sheer size will increase
     public int scaleFactor = 30;
     
     public Celestial() {
+        this.scaleImage();
+    }
+    
+    public void scaleImage() {
         setImage(new GreenfootImage("earth.png"));
         
         image = getImage();
@@ -37,5 +40,13 @@ public class Celestial extends Actor
         return image.getHeight();
     }
     
-    public void act() {}
+    public int getCoordX() {
+        image = getImage();
+        return this.getX() - image.getWidth() / 2;
+    }
+    
+    public int getCoordY() {
+        image = getImage();
+        return this.getX() - image.getHeight() / 2;
+    }
 }

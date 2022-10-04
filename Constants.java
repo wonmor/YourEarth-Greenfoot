@@ -28,5 +28,4 @@ public class Constants
     public static final double scaleFactor = earthSunDistanceMeters / pixelsInOneEarthSunDistancePerPixel;
 
     public static final double numberOfCalculationsPerFrame = 1000;
-    public static final double deltaT = 3600 * 24 / numberOfCalculationsPerFrame;
 }

@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.target=DecreaseButton
+comment0.text=\r\n\ This\ is\ a\ decrease\ button,\ and\ when\ pressed,\ the\ Earth's\ mass\ decreases\ step\ by\ step...\r\n\ \r\n\ @author\ John\ Seong\r\n\ @version\ 1.0\r\n
+comment1.params=r
+comment1.target=DecreaseButton(Asteroid)
+numComments=2
