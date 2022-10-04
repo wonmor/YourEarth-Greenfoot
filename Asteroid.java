@@ -20,23 +20,22 @@ public class Asteroid extends Actor {
     private double angle = 0.0;
     private double angleSecondDeriv = 0.0;
     
-    private double frameRate;
+    private boolean isPlaying;
     
     private Celestial c;
     private Game w;
     private YouLostMessage lm;
+    private TryAgainButton tb;
     
     private GreenfootImage image;
-    private FPSCounter fpsCounter;
     
-    public double deltaT = 3600 * this.frameRate / Constants.numberOfCalculationsPerFrame;
+    public static final double deltaT = 3600 * 24 / Constants.numberOfCalculationsPerFrame;
     
     public Asteroid(Game w, Celestial c) {
         this.w = w;
         this.c = c;
         
-        fpsCounter = new FPSCounter();
-        fpsCounter.run();
+        this.isPlaying = true;
         
         setToInitConditions();
         updatePosition(this.deltaT);
@@ -50,7 +49,7 @@ public class Asteroid extends Actor {
         image.scale(image.getWidth() / 10, image.getHeight() / 10);
     }
     
-    private void setToInitConditions() {
+    public void setToInitConditions() {
         this.distance = Constants.earthSunDistanceMeters;
         this.distanceSecondDeriv = 0.00;
         
@@ -116,19 +115,18 @@ public class Asteroid extends Actor {
     }
     
     public void act() {
-        this.frameRate = fpsCounter.fps();
-        
-        for (int i = 0; i < Constants.numberOfCalculationsPerFrame; i++) {
-            updatePosition(this.deltaT);
+        // Don't render after the failure message appeared...
+        if (this.isPlaying) {
+            for (int i = 0; i < Constants.numberOfCalculationsPerFrame; i++) {
+                updatePosition(this.deltaT);
+            }
         }
         
         int[] coords = getCartesianCoords(this.distance / Constants.scaleFactor, this.angle);
         
         boolean xCoordInBound = coords[0] <= Constants.screenWidth && coords[0] > 0;
         boolean yCoordInBound = coords[1] <= Constants.screenHeight && coords[1] > 0;
-        
-        System.out.println(xCoordInBound);
-        
+
         if (xCoordInBound && yCoordInBound) {
             Star s = new Star(Color.RED);
             this.w.addObject(s, coords[0], coords[1]);
@@ -137,6 +135,9 @@ public class Asteroid extends Actor {
         } else {
             lm = new YouLostMessage(this);
             w.addObject(lm, Constants.screenWidth / 2, Constants.screenHeight / 2);
+            
+            tb = new TryAgainButton(this);
+            w.addObject(tb, Constants.screenWidth / 2, Constants.screenHeight / 2);
         }
     }
 }

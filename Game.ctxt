@@ -8,4 +8,6 @@ comment2.target=int\ getRandomNumber(int,\ int)
 comment3.params=
 comment3.target=void\ prepare()
 comment3.text=\r\n\ Prepare\ the\ world\ for\ the\ start\ of\ the\ program.\r\n\ That\ is\:\ create\ the\ initial\ objects\ and\ add\ them\ to\ the\ world.\r\n
-numComments=4
+comment4.params=
+comment4.target=void\ addUIElements()
+numComments=5

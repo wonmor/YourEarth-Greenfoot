@@ -12,19 +12,18 @@ public class Game extends World {
      * 
      */
 
-    Asteroid r;
-    Celestial c;
-    ContainerText ct;
+    private Asteroid r;
+    private Celestial c;
+    private ContainerText ct;
 
-    IncreaseButton ib;
-    DecreaseButton db;
+    private IncreaseButton ib;
+    private DecreaseButton db;
 
-    public Game()
-    {    
+    public Game() {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(Constants.screenWidth, Constants.screenHeight, 1);
         
-        prepare();
+        this.prepare();
     }
 
     public static int getRandomNumber(int min, int max) {
@@ -35,8 +34,7 @@ public class Game extends World {
      * Prepare the world for the start of the program.
      * That is: create the initial objects and add them to the world.
      */
-    private void prepare()
-    {
+    private void prepare() {
         GreenfootImage background = getBackground(); // Create Image
 
         background.setColor(Color.BLACK); // Add Background color
@@ -47,19 +45,23 @@ public class Game extends World {
             this.addObject(s, getRandomNumber(0, getWidth()), getRandomNumber(0, getHeight()));
         }
 
-        c = new Celestial();
-        this.addObject(c, getWidth() / 2, getHeight() / 2);
+        this.addUIElements();
+    }
+    
+    private void addUIElements() {
+        this.c = new Celestial();
+        this.addObject(this.c, getWidth() / 2, getHeight() / 2);
 
-        r = new Asteroid(this, c);
-        this.addObject(r, 50, 50);
+        this.r = new Asteroid(this, this.c);
+        this.addObject(this.r, 50, 50);
 
-        ct = new ContainerText(r);
-        this.addObject(ct, getWidth() / 2 + 10, getHeight() - getHeight() / 20);
+        this.ct = new ContainerText(this.r);
+        this.addObject(this.ct, getWidth() / 2 + 10, getHeight() - getHeight() / 20);
 
-        ib = new IncreaseButton(r);
-        this.addObject(ib, getWidth() / 2 + 20, getHeight() - getHeight() / 8);
+        this.ib = new IncreaseButton(this.r);
+        this.addObject(this.ib, getWidth() / 2 + 20, getHeight() - getHeight() / 8);
 
-        db = new DecreaseButton(r);
-        this.addObject(db, getWidth() / 2 - 20, getHeight() - getHeight() / 8);
+        this.db = new DecreaseButton(this.r);
+        this.addObject(this.db, getWidth() / 2 - 20, getHeight() - getHeight() / 8);
     }
 }

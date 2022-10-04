@@ -8,12 +8,12 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 
 public class UIElement extends Actor {
-    GreenfootImage image;
-    Asteroid r;
+    private GreenfootImage image;
+    private Asteroid r;
     
-    String imageName;
+    private String imageName;
     
-    boolean onClickEvent;
+    private boolean onClickEvent;
     
     public UIElement(Asteroid r, String imageName, boolean onClickEvent, int scaleFactor) {
         this.r = r;
@@ -50,6 +50,15 @@ public class UIElement extends Actor {
                     this.draw(r, "increaseButtonSelected.png", 5);
                 } else {
                     this.draw(r, "increaseButton.png", 5);
+                }
+                break;
+            case "tryAgainButton.png":
+                if (clicked) {
+                    this.draw(r, "tryAgainButtonSelected.png", 2);
+                    
+                    Greenfoot.setWorld(new Game());
+                } else {
+                    this.draw(r, "tryAgainButton.png", 2);
                 }
                 break;
         }
