@@ -6,16 +6,12 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @version (a version number or a date)
  */
 public class Game extends World {
-
-    /**
-     * Constructor for objects of class MyWorld.
-     * 
-     */
-
-    private Asteroid r;
     private Celestial c;
+    
+    private Collider collider;
+    private Levels levels;
+    
     private ContainerText ct;
-
     private IncreaseButton ib;
     private DecreaseButton db;
 
@@ -29,7 +25,7 @@ public class Game extends World {
     public static int getRandomNumber(int min, int max) {
         return (int) ((Math.random() * (max - min)) + min);
     }
-    
+
     /**
      * Prepare the world for the start of the program.
      * That is: create the initial objects and add them to the world.
@@ -44,24 +40,32 @@ public class Game extends World {
             Star s = new Star(Color.WHITE);
             this.addObject(s, getRandomNumber(0, getWidth()), getRandomNumber(0, getHeight()));
         }
-
+        
+        this.c = new Celestial();
+        this.addObject(this.c, getWidth() / 2, getHeight() / 2);
+        
+        this.collider = new Collider();
+        this.addObject(this.collider, getWidth() / 2, getHeight() / 2);
+        
+        this.levels = new Levels(this, this.c, this.collider);
+        
         this.addUIElements();
     }
     
     private void addUIElements() {
-        this.c = new Celestial();
-        this.addObject(this.c, getWidth() / 2, getHeight() / 2);
-
-        this.r = new Asteroid(this, this.c);
-        this.addObject(this.r, 50, 50);
-
-        this.ct = new ContainerText(this.r);
+        this.ct = new ContainerText(this.levels.r);
         this.addObject(this.ct, getWidth() / 2 + 10, getHeight() - getHeight() / 20);
 
-        this.ib = new IncreaseButton(this.r);
+        this.ib = new IncreaseButton(this.levels.r);
         this.addObject(this.ib, getWidth() / 2 + 20, getHeight() - getHeight() / 8);
 
-        this.db = new DecreaseButton(this.r);
+        this.db = new DecreaseButton(this.levels.r);
         this.addObject(this.db, getWidth() / 2 - 20, getHeight() - getHeight() / 8);
+    }
+    
+    public static void logCoords(int x, int y) {
+        System.out.println("x: " + x);
+        System.out.println("y: " + y);
+        System.out.println();
     }
 }

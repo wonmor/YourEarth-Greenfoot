@@ -11,7 +11,7 @@ import java.time.temporal.ChronoUnit;
  * @version (a version number or a date)
  */
 
-public class Asteroid extends Actor {   
+public class Asteroid extends GameObject {   
     private double massOfTheSunKg = Constants.massOfTheSunKg;
     
     private double distance = 0.0;
@@ -20,9 +20,10 @@ public class Asteroid extends Actor {
     private double angle = 0.0;
     private double angleSecondDeriv = 0.0;
     
-    private boolean isPlaying;
+    public boolean isPlaying;
     
     private Celestial c;
+    private Collider celestialCollider;
     private Game w;
     private YouLostMessage lm;
     private TryAgainButton tb;
@@ -31,22 +32,23 @@ public class Asteroid extends Actor {
     
     public static final double deltaT = 3600 * 24 / Constants.numberOfCalculationsPerFrame;
     
-    public Asteroid(Game w, Celestial c) {
+    public Asteroid(Game w, Celestial c, Collider celestialCollider) {
         this.w = w;
         this.c = c;
+        this.celestialCollider = celestialCollider;
         
         this.isPlaying = true;
         
-        setToInitConditions();
-        updatePosition(this.deltaT);
+        this.setToInitConditions();
+        this.updatePosition(this.deltaT);
         
-        int[] coords = getCartesianCoords(this.distance, this.angle);
-        setLocation(coords[0], coords[1]);
+        int[] coords = this.getCartesianCoords(this.distance, this.angle);
         
-        setImage(new GreenfootImage("asteroid.png"));
+        this.setLocation(coords[0], coords[1]);
+        this.setImage(new GreenfootImage("asteroid.png"));
         
-        image = getImage();
-        image.scale(image.getWidth() / 10, image.getHeight() / 10);
+        this.image = getImage();
+        this.image.scale(image.getWidth() / 10, image.getHeight() / 10);
     }
     
     public void setToInitConditions() {
@@ -57,16 +59,16 @@ public class Asteroid extends Actor {
         this.angleSecondDeriv = Constants.earthAngularVelocityMetersPerSecond * 1.5;
     }
     
-    public static double calculateDistanceAcceleration(double distance, double angleSecondDeriv, double massOfTheSunKg) {
+    private double calculateDistanceAcceleration(double distance, double angleSecondDeriv, double massOfTheSunKg) {
         return distance * Math.pow(angleSecondDeriv, 2) - (Constants.gravitationalConstant * massOfTheSunKg) / Math.pow(distance, 2);
     }
     
-    public static double calculateAngleAcceleration(double distanceSecondDeriv, double angleSecondDeriv, double distance) {
+    private double calculateAngleAcceleration(double distanceSecondDeriv, double angleSecondDeriv, double distance) {
         return -2.0 * distanceSecondDeriv * angleSecondDeriv / distance;
     }
     
     // Predicting the derivative graph using Euler's Method...
-    public static double performEulersMethod(double currentValue, double deltaT, double derivative) {
+    private double performEulersMethod(double currentValue, double deltaT, double derivative) {
         return currentValue + deltaT * derivative; // y = ax + b form
     }
     
@@ -78,11 +80,14 @@ public class Asteroid extends Actor {
         
         if (solarMassMultiplier > 1) {
             this.c.scaleFactor--;
+            this.celestialCollider.scaleFactor -= 3;
         } else {
             this.c.scaleFactor++;
+            this.celestialCollider.scaleFactor += 3;
         }
         
-        this.c.scaleImage();
+        this.c.draw();
+        this.celestialCollider.draw();
     }
     
     private void updatePosition(double deltaT) {
@@ -106,8 +111,7 @@ public class Asteroid extends Actor {
         int x = (int)Math.round(Math.cos(angle) * distance + Constants.screenWidth / 2 + 35);
         int y = (int)Math.round(Math.sin(angle * -1) * distance + Constants.screenHeight / 2 + 35);
         
-        System.out.println("x: " + x);
-        System.out.println("y: " + y);
+        Game.logCoords(x, y);
         
         int[] coords = new int[]{x, y};
         
@@ -126,18 +130,24 @@ public class Asteroid extends Actor {
         
         boolean xCoordInBound = coords[0] <= Constants.screenWidth && coords[0] > 0;
         boolean yCoordInBound = coords[1] <= Constants.screenHeight && coords[1] > 0;
+        
+        boolean isCrash = this.isTouching(this.celestialCollider.getClass());
 
-        if (xCoordInBound && yCoordInBound) {
+        if (xCoordInBound && yCoordInBound && !isCrash) {
+            this.isPlaying = true;
+            
             Star s = new Star(Color.RED);
             this.w.addObject(s, coords[0], coords[1]);
             
             setLocation(coords[0] - image.getWidth() / 2, coords[1] - image.getHeight() / 2);
         } else {
+            this.isPlaying = false;
+            
             lm = new YouLostMessage(this);
             w.addObject(lm, Constants.screenWidth / 2, Constants.screenHeight / 2);
             
             tb = new TryAgainButton(this);
-            w.addObject(tb, Constants.screenWidth / 2, Constants.screenHeight / 2);
+            w.addObject(tb, Constants.screenWidth / 2, Constants.screenHeight / 2 + 50);
         }
     }
 }

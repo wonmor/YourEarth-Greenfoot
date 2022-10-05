@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class YouLostMessage extends UIElement {
     public YouLostMessage(Asteroid r) {
-        super(r, "youLostText.png", false, 2);
+        super("youLostText.png", false, 2, 2);
+        super.setAsteroidInstance(r);
     }
 }

@@ -8,6 +8,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class ContainerText extends UIElement {
     public ContainerText(Asteroid r) {
-        super(r, "massText.png", false, 2);
+        super("massText.png", false, 2, 2);
     }
 }

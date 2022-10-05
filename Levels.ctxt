@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.target=Levels
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Leveles\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=game\ c\ collider
+comment1.target=Levels(Game,\ Celestial,\ Collider)
+comment2.params=
+comment2.target=void\ change()
+numComments=3

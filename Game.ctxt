@@ -10,4 +10,6 @@ comment3.target=void\ prepare()
 comment3.text=\r\n\ Prepare\ the\ world\ for\ the\ start\ of\ the\ program.\r\n\ That\ is\:\ create\ the\ initial\ objects\ and\ add\ them\ to\ the\ world.\r\n
 comment4.params=
 comment4.target=void\ addUIElements()
-numComments=5
+comment5.params=x\ y
+comment5.target=void\ logCoords(int,\ int)
+numComments=6

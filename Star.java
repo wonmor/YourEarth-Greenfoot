@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Star extends Actor
+public class Star extends GameObject
 {
     /**
      * Act - do whatever the Trajectory wants to do. This method is called whenever
@@ -23,6 +23,4 @@ public class Star extends Actor
         
         this.setImage(image);
     }
-    
-    public void act() {}
 }

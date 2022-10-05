@@ -6,11 +6,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Celestial extends Actor
+public class Celestial extends GameObject
 {
     /**
      * Act - do whatever the Earth wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * t    he 'Act' or 'Run' button gets pressed in the environment.
      */
 
     private GreenfootImage image;
@@ -18,10 +18,10 @@ public class Celestial extends Actor
     public int scaleFactor = 30;
     
     public Celestial() {
-        this.scaleImage();
+        this.draw();
     }
     
-    public void scaleImage() {
+    public void draw() {
         setImage(new GreenfootImage("earth.png"));
         
         image = getImage();

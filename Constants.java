@@ -12,8 +12,8 @@ public class Constants
     public static final int screenWidth = 600;
     public static final int screenHeight = 600;
     
-    public static final int sunDefaultWidth = 70;
-    public static final int sunDefaultHeight = 70;
+    public static final int sunDefaultWidth = 40;
+    public static final int sunDefaultHeight = 40;
     
     public static final int containerWidth = 500;
     public static final int containerHeight = 30;

@@ -1,10 +1,12 @@
 #BlueJ class context
 comment0.target=UIElement
 comment0.text=\r\n\ This\ is\ a\ centralized\ class\ that\ handles\ all\ the\ UI\ elements\ on\ the\ game\ screen...\r\n\ \r\n\ @author\ John\ Seong\ \r\n\ @version\ 1.0\r\n
-comment1.params=r\ imageName\ onClickEvent\ scaleFactor
-comment1.target=UIElement(Asteroid,\ java.lang.String,\ boolean,\ int)
-comment2.params=r\ imageName\ scaleFactor
-comment2.target=void\ draw(Asteroid,\ java.lang.String,\ int)
-comment3.params=
-comment3.target=void\ act()
-numComments=4
+comment1.params=imageName\ onClickEvent\ scaleFactorX\ scaleFactorY
+comment1.target=UIElement(java.lang.String,\ boolean,\ int,\ int)
+comment2.params=r
+comment2.target=void\ setAsteroidInstance(Asteroid)
+comment3.params=imageName\ scaleFactorX\ scaleFactorY
+comment3.target=void\ draw(java.lang.String,\ int,\ int)
+comment4.params=
+comment4.target=void\ act()
+numComments=5

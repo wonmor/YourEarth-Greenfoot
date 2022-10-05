@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.target=Asteroid
 comment0.text=\r\n\ Write\ a\ description\ of\ class\ Rocket\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
-comment1.params=w\ c
-comment1.target=Asteroid(Game,\ Celestial)
+comment1.params=w\ c\ celestialCollider
+comment1.target=Asteroid(Game,\ Celestial,\ Collider)
 comment2.params=
 comment2.target=void\ setToInitConditions()
 comment3.params=distance\ angleSecondDeriv\ massOfTheSunKg

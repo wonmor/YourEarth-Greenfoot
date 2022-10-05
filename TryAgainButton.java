@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class TryAgainButton extends UIElement {
     public TryAgainButton(Asteroid r) {
-        super(r, "tryAgainButton.png", true, 2);
+        super("tryAgainButton.png", true, 4, 4);
+        super.setAsteroidInstance(r);
     }
 }

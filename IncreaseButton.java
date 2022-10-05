@@ -9,6 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 public class IncreaseButton extends UIElement {
     public IncreaseButton(Asteroid r) {
-        super(r, "increaseButton.png", true, 5);
+        super("increaseButton.png", true, 5, 5);
+        super.setAsteroidInstance(r);
     }
 }
