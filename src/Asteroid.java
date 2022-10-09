@@ -158,12 +158,14 @@ public class Asteroid extends GameObject {
         if (xCoordInBound && yCoordInBound && !isCrash) {
             this.isPlaying = true;
             
-            Star s = new Star(Color.PINK);
+            Star s = new Star(Color.RED);
             this.w.addObject(s, coords[0], coords[1]);
             
             setLocation(coords[0] - image.getWidth() / 2, coords[1] - image.getHeight() / 2);
         } else {
             this.isPlaying = false;
+            
+            this.w.removeObjects(this.w.getObjects(Asteroid.class));
             
             lm = new YouLostMessage(this);
             w.addObject(lm, Constants.screenWidth / 2, Constants.screenHeight / 2);

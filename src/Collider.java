@@ -1,18 +1,14 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Collider here.
+ * This is a collider class suited for the use on the celestial object.
+ * It basically covers the rectangular area within the celestial sphere,
+ * providing accurate collision detection support.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author John Seong
+ * @version 1.0
  */
-public class Collider extends GameObject
-{
-    /**
-     * Act - do whatever the Collider wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    
+public class Collider extends GameObject {
     public int scaleFactor = 0;
     
     public Collider() {
@@ -20,7 +16,8 @@ public class Collider extends GameObject
     }
     
     public void draw() {
-        GreenfootImage image = new GreenfootImage(Constants.sunDefaultWidth - 15 - this.scaleFactor, Constants.sunDefaultHeight - 15 - this.scaleFactor);
+        // Math.abs ensure that the width and the height never become negative values as it happens when the slope of the trajectory is changed drastically...
+        GreenfootImage image = new GreenfootImage(Math.abs(Constants.sunDefaultWidth - 15 - this.scaleFactor), Math.abs(Constants.sunDefaultHeight - 15 - this.scaleFactor));
         
         this.setImage(image);
     }

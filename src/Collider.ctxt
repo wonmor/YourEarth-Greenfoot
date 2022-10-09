@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Collider
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Collider\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ This\ is\ a\ collider\ class\ suited\ for\ the\ use\ on\ the\ celestial\ object.\r\n\ It\ basically\ covers\ the\ rectangular\ area\ within\ the\ celestial\ sphere,\r\n\ providing\ accurate\ collision\ detection\ support.\r\n\ \r\n\ @author\ John\ Seong\r\n\ @version\ 1.0\r\n
 comment1.params=
 comment1.target=Collider()
 comment2.params=

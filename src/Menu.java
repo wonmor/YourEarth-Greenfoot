@@ -33,9 +33,9 @@ public class Menu extends World
         background.setColor(Color.BLACK); // Add Background color
         background.fillRect(0, 0, getWidth(), getHeight()); // Fill image with color
         
-        backgroundMusic = new GreenfootSound("1939.mp3");
+        backgroundMusic = new GreenfootSound("1939.mp3"); // 1939 is my original song that I actually released on Spotify!
         
-        // backgroundMusic.playLoop();
+        backgroundMusic.playLoop();
         backgroundMusic.setVolume(25);
 
         for (int i = 0; i <= 100; i++) {
