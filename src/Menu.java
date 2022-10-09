@@ -14,6 +14,7 @@ public class Menu extends World
     private Celestial celestial;
     
     private GreenfootImage background;
+    private GreenfootSound backgroundMusic;
 
     /**
      * Constructor for objects of class Menu.
@@ -31,6 +32,11 @@ public class Menu extends World
 
         background.setColor(Color.BLACK); // Add Background color
         background.fillRect(0, 0, getWidth(), getHeight()); // Fill image with color
+        
+        backgroundMusic = new GreenfootSound("1939.mp3");
+        
+        // backgroundMusic.playLoop();
+        backgroundMusic.setVolume(25);
 
         for (int i = 0; i <= 100; i++) {
             Star s = new Star(Color.WHITE);

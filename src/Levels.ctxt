@@ -1,8 +1,10 @@
 #BlueJ class context
 comment0.target=Levels
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Leveles\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
-comment1.params=game\ c\ collider
-comment1.target=Levels(Game,\ Celestial,\ Collider)
+comment0.text=\r\n\ This\ class\ handles\ both\ the\ transition\ between\ the\ levels\ as\ well\ as\r\n\ the\ difficulty\ settings\ for\ individual\ stages\ of\ this\ game.\r\n\ \r\n\ Basically,\ as\ time\ passes\ by,\ the\ number\ of\ asteroids\ that\ will\ fly\ into\r\n\ Earth\ orbit\ will\ increase.\r\n\ \r\n\ @author\ John\ Seong\r\n\ @version\ 1.0\r\n
+comment1.params=game\ c\ collider\ ib\ db
+comment1.target=Levels(Game,\ Celestial,\ Collider,\ IncreaseButton,\ DecreaseButton)
 comment2.params=
 comment2.target=void\ change()
-numComments=3
+comment3.params=
+comment3.target=void\ run()
+numComments=4

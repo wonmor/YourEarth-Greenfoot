@@ -9,7 +9,8 @@ public class Game extends World {
     private Celestial c;
     
     private Collider collider;
-    private Levels levels;
+    
+    public Levels levels;
     
     private ContainerText ct;
     private IncreaseButton ib;
@@ -24,6 +25,10 @@ public class Game extends World {
 
     public static int getRandomNumber(int min, int max) {
         return (int) ((Math.random() * (max - min)) + min);
+    }
+    
+    public static double getRandomNumber(double min, double max) {
+        return (double) ((Math.random() * (max - min)) + min);
     }
 
     /**
@@ -42,24 +47,29 @@ public class Game extends World {
         }
         
         this.c = new Celestial();
+        this.c.setGame(this);
+        
         this.addObject(this.c, getWidth() / 2, getHeight() / 2);
         
         this.collider = new Collider();
         this.addObject(this.collider, getWidth() / 2, getHeight() / 2);
         
-        this.levels = new Levels(this, this.c, this.collider);
-        
         this.addUIElements();
+        
+        this.levels = new Levels(this, this.c, this.collider, this.ib, this.db);
+        
+        this.ib.setAsteroidInstance(this.levels.asteroidList);
+        this.db.setAsteroidInstance(this.levels.asteroidList);
     }
     
-    private void addUIElements() {
-        this.ct = new ContainerText(this.levels.r);
+    public void addUIElements() {
+        this.ct = new ContainerText();
         this.addObject(this.ct, getWidth() / 2 + 10, getHeight() - getHeight() / 20);
 
-        this.ib = new IncreaseButton(this.levels.r);
+        this.ib = new IncreaseButton(this.c, this, this.collider);
         this.addObject(this.ib, getWidth() / 2 + 20, getHeight() - getHeight() / 8);
 
-        this.db = new DecreaseButton(this.levels.r);
+        this.db = new DecreaseButton(this.c, this, this.collider);
         this.addObject(this.db, getWidth() / 2 - 20, getHeight() - getHeight() / 8);
     }
     

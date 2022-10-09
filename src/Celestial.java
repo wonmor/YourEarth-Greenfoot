@@ -1,24 +1,31 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Earth here.
+ * The Celestial class stores the properties of the main planet (Earth),
+ * including the scale factor between the raw value (in astronomical units) and
+ * the game Earth-Asteroid distance.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author John Seong 
+ * @version 1.0
  */
 public class Celestial extends GameObject
 {
     /**
      * Act - do whatever the Earth wants to do. This method is called whenever
-     * t    he 'Act' or 'Run' button gets pressed in the environment.
+     * the 'Act' or 'Run' button gets pressed in the environment.
      */
 
     private GreenfootImage image;
+    private Game game = null;
     
     public int scaleFactor = 30;
     
-    public Celestial() {
+    public Celestial() {    
         this.draw();
+    }
+    
+    public void setGame(Game game) {
+        this.game = game;
     }
     
     public void draw() {
@@ -28,6 +35,12 @@ public class Celestial extends GameObject
         image.scale(image.getWidth() / this.scaleFactor, image.getHeight() / this.scaleFactor);
         
         setImage(image);
+    }
+    
+    public void act() {
+        if (this.game == null) { return; }
+        
+        this.game.levels.run();
     }
     
     public int getWidth() {

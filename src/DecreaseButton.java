@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * This is a decrease button, and when pressed, the Earth's mass decreases step by step...
@@ -8,8 +9,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 
 public class DecreaseButton extends UIElement {
-    public DecreaseButton(Asteroid r) {
+    public DecreaseButton(Celestial celestial, Game g, Collider collider) {
         super("decreaseButton.png", true, 5, 5);
-        super.setAsteroidInstance(r);
+        
+        super.setGameInstance(g);
+        super.setCelestialInstance(celestial);
+        super.setColliderInstance(collider);
     }
 }

@@ -5,10 +5,38 @@ import java.time.Duration;
 import java.time.temporal.ChronoUnit;  
 
 /**
- * Write a description of class Rocket here.
+ * Asteroid class contains the core functionality of this game,
+ * which includes its realistic and accurate modelling of planetary motion.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * The equation itself was derived by using the Lagrangian (kinetic energy minus potential energy
+ * in a two-body system).
+ * 
+ * Here is a really nice video on YouTube that explains why Lagrangian Mechanics is superior to its
+ * Newtonian Equivalent in some situations:
+ * https://www.youtube.com/watch?v=KpLno70oYHE
+ * 
+ * Newton's famous Universal Gravitational law (Gmm/r^2 with the sign flipped to negative) 
+ * was used to calculate the potential energy.
+ * 
+ * CHECK OUT A VIDEO I FILMED ABOUT THIS:
+ * https://www.youtube.com/watch?v=AnD9-1YCGdg
+ * 
+ * Basic understanding of differential calculus was required to derive these equations, although they weren't 
+ * particularly too hard, luckily enough. Was just perfect for me who has been taking Grade 12 Calculus and Vectors
+ * and took the AP Calculus BC exam last year.
+ * 
+ * In this case, I used the numerical differentation method that I learned in AP Cal. (tangent approximation method
+ * or in other words the "Euler's method" of getting the derivative) to get the velocity from the position-time system.
+ * 
+ * Last but not at least, the last AP Cal. knowledge that was useful was the polar coordinates.
+ * This actually appears in Sal Khan's Pre-Calculus course as well; it basically expresses the existing Cartesian coordinates
+ * in terms of the angle and the radius between the point and the origin (0, 0).
+ * 
+ * All calculations were done in terms of polar coordinates and converted at the last minute upon splashing them onto canvas.
+ * This was done by utilizing Trigonmetry that I learned in Gr. 10 and 11 Math.
+ * 
+ * @author John Seong
+ * @version 1.0
  */
 
 public class Asteroid extends GameObject {   
@@ -20,6 +48,10 @@ public class Asteroid extends GameObject {
     private double angle = 0.0;
     private double angleSecondDeriv = 0.0;
     
+    private Color[] colorArray = {Color.RED, Color.BLUE, Color.YELLOW, Color.GREEN};
+    
+    private Color traceColor;
+    
     public boolean isPlaying;
     
     private Celestial c;
@@ -30,8 +62,6 @@ public class Asteroid extends GameObject {
     
     private GreenfootImage image;
     
-    public static final double deltaT = 3600 * 24 / Constants.numberOfCalculationsPerFrame;
-    
     public Asteroid(Game w, Celestial c, Collider celestialCollider) {
         this.w = w;
         this.c = c;
@@ -40,7 +70,7 @@ public class Asteroid extends GameObject {
         this.isPlaying = true;
         
         this.setToInitConditions();
-        this.updatePosition(this.deltaT);
+        this.updatePosition(Constants.deltaT);
         
         int[] coords = this.getCartesianCoords(this.distance, this.angle);
         
@@ -49,6 +79,8 @@ public class Asteroid extends GameObject {
         
         this.image = getImage();
         this.image.scale(image.getWidth() / 10, image.getHeight() / 10);
+        
+        this.traceColor = this.colorArray[Game.getRandomNumber(0, this.colorArray.length - 1)];
     }
     
     public void setToInitConditions() {
@@ -56,7 +88,7 @@ public class Asteroid extends GameObject {
         this.distanceSecondDeriv = 0.00;
         
         this.angle = Math.PI / 6 * Game.getRandomNumber(2, 10);
-        this.angleSecondDeriv = Constants.earthAngularVelocityMetersPerSecond * 1.5;
+        this.angleSecondDeriv = Constants.earthAngularVelocityMetersPerSecond * Game.getRandomNumber(1.1, 1.35);
     }
     
     private double calculateDistanceAcceleration(double distance, double angleSecondDeriv, double massOfTheSunKg) {
@@ -77,17 +109,6 @@ public class Asteroid extends GameObject {
         if (solarMassMultiplier == 1) { return; }
         
         this.massOfTheSunKg *= solarMassMultiplier;
-        
-        if (solarMassMultiplier > 1) {
-            this.c.scaleFactor--;
-            this.celestialCollider.scaleFactor -= 3;
-        } else {
-            this.c.scaleFactor++;
-            this.celestialCollider.scaleFactor += 3;
-        }
-        
-        this.c.draw();
-        this.celestialCollider.draw();
     }
     
     private void updatePosition(double deltaT) {
@@ -120,9 +141,9 @@ public class Asteroid extends GameObject {
     
     public void act() {
         // Don't render after the failure message appeared...
-        if (this.isPlaying) {
+        if (this.isPlaying) {            
             for (int i = 0; i < Constants.numberOfCalculationsPerFrame; i++) {
-                updatePosition(this.deltaT);
+                updatePosition(Constants.deltaT);
             }
         }
         
@@ -131,12 +152,13 @@ public class Asteroid extends GameObject {
         boolean xCoordInBound = coords[0] <= Constants.screenWidth && coords[0] > 0;
         boolean yCoordInBound = coords[1] <= Constants.screenHeight && coords[1] > 0;
         
+        
         boolean isCrash = this.isTouching(this.celestialCollider.getClass());
 
         if (xCoordInBound && yCoordInBound && !isCrash) {
             this.isPlaying = true;
             
-            Star s = new Star(Color.RED);
+            Star s = new Star(Color.PINK);
             this.w.addObject(s, coords[0], coords[1]);
             
             setLocation(coords[0] - image.getWidth() / 2, coords[1] - image.getHeight() / 2);

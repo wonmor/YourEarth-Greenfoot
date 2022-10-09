@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=ContainerText
 comment0.text=\r\n\ Write\ a\ description\ of\ class\ ContainerText\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
-comment1.params=r
-comment1.target=ContainerText(Asteroid)
+comment1.params=
+comment1.target=ContainerText()
 numComments=2
