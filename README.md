@@ -14,6 +14,8 @@ OPEN THE PROJECT ON GREENFOOT, AND HIT "RUN."
 AUTHOR: JOHN SEONG
 
 USER INSTRUCTIONS:
+Remember the simple law: when the mass increases, the magnitude of the gravity gets larger as it bends more space and time.
+This leads to a phenomenon where the attraction force between the asteroid and the celestial object (which, in this case, Earth) increases.
 ```
 
 <table><tr>
