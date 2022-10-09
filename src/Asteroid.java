@@ -1,9 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-import java.time.Instant;
-import java.time.Duration;
-import java.time.temporal.ChronoUnit;  
-
 /**
  * Asteroid class contains the core functionality of this game,
  * which includes its realistic and accurate modelling of planetary motion.
@@ -60,6 +56,10 @@ public class Asteroid extends GameObject {
     private YouLostMessage lm;
     private TryAgainButton tb;
     
+    private Levels lvls = null;
+    
+    private Scoreboard scoreboard;
+    
     private GreenfootImage image;
     
     public Asteroid(Game w, Celestial c, Collider celestialCollider) {
@@ -81,6 +81,10 @@ public class Asteroid extends GameObject {
         this.image.scale(image.getWidth() / 10, image.getHeight() / 10);
         
         this.traceColor = this.colorArray[Game.getRandomNumber(0, this.colorArray.length - 1)];
+    }
+    
+    public void setLevelsInstance(Levels lvls) {
+        this.lvls = lvls;
     }
     
     public void setToInitConditions() {
@@ -167,11 +171,16 @@ public class Asteroid extends GameObject {
             
             this.w.removeObjects(this.w.getObjects(Asteroid.class));
             
-            lm = new YouLostMessage(this);
-            w.addObject(lm, Constants.screenWidth / 2, Constants.screenHeight / 2);
+            this.lm = new YouLostMessage(this);
+            this.w.addObject(this.lm, Constants.screenWidth / 2, Constants.screenHeight / 2);
             
-            tb = new TryAgainButton(this);
-            w.addObject(tb, Constants.screenWidth / 2, Constants.screenHeight / 2 + 50);
+            this.tb = new TryAgainButton(this);
+            this.w.addObject(this.tb, Constants.screenWidth / 2, Constants.screenHeight / 2 + 50);
+            
+            if (this.lvls == null) { return; }
+            
+            this.scoreboard = new Scoreboard(this.w);
+            this.scoreboard.draw("LEVEL " + this.lvls.currentLevel, true);
         }
     }
 }

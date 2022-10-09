@@ -1,20 +1,24 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+
 /**
- * Write a description of class MyWorld here.
+ * This is the class that has all the properties and methods for the "game" world to be intialized.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author John Seong
+ * @version 1.0
  */
+
 public class Game extends World {
     private Celestial c;
     
     private Collider collider;
     
-    public Levels levels;
+    public Levels levels = null;
     
     private ContainerText ct;
     private IncreaseButton ib;
     private DecreaseButton db;
+    
+    private Scoreboard scoreboard;
 
     public Game() {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -57,6 +61,9 @@ public class Game extends World {
         this.addUIElements();
         
         this.levels = new Levels(this, this.c, this.collider, this.ib, this.db);
+        
+        this.scoreboard = new Scoreboard(this);
+        this.scoreboard.draw("LEVEL " + this.levels.currentLevel, false);
         
         this.ib.setAsteroidInstance(this.levels.asteroidList);
         this.db.setAsteroidInstance(this.levels.asteroidList);

@@ -16,10 +16,6 @@ public class Menu extends World
     private GreenfootImage background;
     private GreenfootSound backgroundMusic;
 
-    /**
-     * Constructor for objects of class Menu.
-     * 
-     */
     public Menu() {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(Constants.screenWidth, Constants.screenHeight, 1); 

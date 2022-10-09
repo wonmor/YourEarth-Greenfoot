@@ -36,6 +36,8 @@ public class Levels extends Actor {
     private Game game;
     private Collider collider;
     
+    private Scoreboard scoreboard;
+    
     private IncreaseButton ib;
     private DecreaseButton db;
     
@@ -54,6 +56,7 @@ public class Levels extends Actor {
     
     public void draw() {
         Asteroid currentAsteroid = new Asteroid(this.game, this.c, this.collider);
+        currentAsteroid.setLevelsInstance(this);
         
         this.asteroidList.add(currentAsteroid);
         
@@ -62,6 +65,9 @@ public class Levels extends Actor {
         this.db.setAsteroidInstance(this.asteroidList);
         
         this.game.addObject(currentAsteroid, 50, 50);
+        
+        this.scoreboard = new Scoreboard(this.game);
+        this.scoreboard.draw("LEVEL " + this.currentLevel, false);
     }
     
     public void run() {
