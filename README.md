@@ -22,6 +22,7 @@ PURPOSE OF PROJECT:
 To effectively help students understand the General Theory of Relativity and Universal Law of Graviation better.
 
 VERSION or DATE: 1.0
+LICENSE: GNU
 
 HOW TO START THIS PROJECT:
 OPEN THE PROJECT ON GREENFOOT, AND HIT "RUN."
