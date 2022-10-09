@@ -30,7 +30,9 @@ OPEN THE PROJECT ON GREENFOOT, AND HIT "RUN."
 AUTHOR: JOHN SEONG
 
 USER INSTRUCTIONS:
-Remember the simple law: when the mass increases, the magnitude of the gravity gets larger as it bends more space and time.
+1. The main goal of this game is to contain the asteroid within the window box, but not to collide with the Earth.
+This can be done by tinkering with the Earth's mass, which leads to the variation in the strength of the gravity.
+2. Remember the simple law: when the mass increases, the magnitude of the gravity gets larger as it bends more space and time.
 This leads to a phenomenon where the attraction force between the asteroid and the celestial object
 (which, in this case, Earth) increases.
 ```
