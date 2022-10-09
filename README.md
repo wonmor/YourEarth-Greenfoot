@@ -19,8 +19,7 @@ A dodge game developed using **Greenfoot**. Based upon real-life **orbital mecha
 
 ```
 PURPOSE OF PROJECT:
-To effectively help students understand the General Theory of Relativity
-and Universal Law of Graviation better.
+To effectively help students understand the General Theory of Relativity and Universal Law of Graviation better.
 
 VERSION or DATE: 1.0
 
