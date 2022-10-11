@@ -3,17 +3,16 @@ A dodge game developed using **Greenfoot**. Based upon real-life **orbital mecha
 
 <table><tr>
 
-<td valign="center"><img width="500" alt="Screenshot2" src="https://user-images.githubusercontent.com/35755386/194770367-f390f678-8ee7-4652-a24b-ea79efdf4873.png">
+<td valign="center"><img width="500" alt="Screenshot2" src="https://user-images.githubusercontent.com/35755386/194770367-f390f678-8ee7-4652-a24b-ea79efdf4873.png" />
 </td>
 
-<td valign="center"><img width="500" alt="Screenshot1" src="https://user-images.githubusercontent.com/35755386/194770359-82d7dab5-3061-4a1b-836a-272d3eaed30c.png">
+<td valign="center"><img width="500" alt="Screenshot1" src="https://user-images.githubusercontent.com/35755386/194770359-82d7dab5-3061-4a1b-836a-272d3eaed30c.png" />
+</td>
+  
+<td valign="center"><img width="500" alt="Screenshot3"><img width="500" alt="Screenshot 2022-10-11 092643" src="https://user-images.githubusercontent.com/35755386/195104145-66fc3efe-7f69-461d-ae4b-e8e00fe2d4e5.png" />
 </td>
 
-<td valign="center"><img width="500" alt="Screenshot3" src="https://images.githubusercontent.com/35755386/195103776-aed3029c-f816-43b1-9087-875954d28c6d.png">
-</td>
-
-
-<td valign="center"><img width="500" alt="Screenshot4" src="https://user-images.githubusercontent.com/35755386/194770372-e376e256-8d3b-4768-b733-ed4b9ae7d6f6.png">
+<td valign="center"><img width="500" alt="Screenshot4" src="https://user-images.githubusercontent.com/35755386/194770372-e376e256-8d3b-4768-b733-ed4b9ae7d6f6.png" />
 </td>
 
 </tr></table>
