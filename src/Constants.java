@@ -9,8 +9,7 @@ import java.util.HashMap;
  * @author John Seong
  * @version 1.0
  */
-public class Constants  
-{
+public class Constants {
     public static final int screenWidth = 600;
     public static final int screenHeight = 600;
     

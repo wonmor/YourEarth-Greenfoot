@@ -2,12 +2,17 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
- * This is a increase button, and when pressed, the Earth's mass increases step by step...
+ * This is a centralized class that handles all the UI elements on the game screen.
+ * It effectively utilizes Java's core functionality: Polymorphism.
  * 
- * @author John Seong
+ * Not only that, by creating two methods that accept different types of parameters but share the same name,
+ * the program uses Method Overriding design pattern as well.
+ * 
+ * A guard clause is used instead of complex, nested if statements for syntactic sugar (better readability).
+ * 
+ * @author John Seong 
  * @version 1.0
  */
-
 public class IncreaseButton extends UIElement {
     public IncreaseButton(Celestial celestial, Game g, Collider collider) {
         super("increaseButton.png", true, 5, 5);
