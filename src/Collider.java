@@ -11,12 +11,23 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Collider extends GameObject {
     public int scaleFactor = 0;
     
+    /**
+     * A constructor for the Collider class. On intialization, draw the sprite image.
+     * 
+     * @since 1.0
+     */
     public Collider() {
         this.draw();
     }
     
+    /**
+     * Draw the sprite image on the display.
+     * Math.abs ensure that the width and the height never become negative values
+     * as it happens when the slope of the trajectory is changed drastically.
+     * 
+     * @since 1.0
+     */
     public void draw() {
-        // Math.abs ensure that the width and the height never become negative values as it happens when the slope of the trajectory is changed drastically...
         GreenfootImage image = new GreenfootImage(Math.abs(Constants.sunDefaultWidth - 15 - this.scaleFactor), Math.abs(Constants.sunDefaultHeight - 15 - this.scaleFactor));
         
         this.setImage(image);

@@ -1,7 +1,7 @@
 #BlueJ class context
 comment0.target=Star
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Trajectory\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ This\ is\ a\ class\ that\ defines\ the\ object\ that\ composes\ the\ trajectory\ of\ the\ asteroid\r\n\ AND\ the\ background\ decors\ (the\ randomized\ stars\ in\ the\ background).\r\n\ \r\n\ @author\ John\ Seong\r\n\ @version\ 1.0\r\n
 comment1.params=c
 comment1.target=Star(greenfoot.Color)
-comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ Trajectory\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment1.text=\r\n\ A\ constructor\ for\ the\ Star\ class.\r\n\ On\ initialization,\ it\ sets\ the\ image\ sprite\ and\ displays\ it\ on\ the\ main\ window.\r\n\ The\ colour\ of\ the\ star\ is\ randomized\ based\ upon\ the\ available\ options.\r\n\ \r\n\ @param\ c\ the\ colour\ that\ the\ star\ is\ going\ to\ be\r\n\ \r\n\ @since\ 1.0\r\n
 numComments=2

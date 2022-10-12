@@ -1,14 +1,13 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Menu here.
+ * This is a class that contains all the menu elements that appear on launch.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author John Seong
+ * @version 1.0
  */
 
-public class Menu extends World
-{
+public class Menu extends World {
     private Logo logo;
     private PlayButton playButton;
     private Celestial celestial;
@@ -16,13 +15,22 @@ public class Menu extends World
     private GreenfootImage background;
     private GreenfootSound backgroundMusic;
 
+    /**
+     * Create a new world with 600x400 cells with a cell size of 1x1 pixels.
+     * 
+     * @since 1.0
+     */
     public Menu() {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(Constants.screenWidth, Constants.screenHeight, 1); 
         
         this.prepare();
     }
     
+    /**
+     * Adds all the objects and UI elements that appear on screen, whicn include the celestial, randomly generated stars, asteroid and its trace, etc.
+     * 
+     * @since 1.0
+     */
     private void prepare() {
         background = getBackground(); // Create Image
 

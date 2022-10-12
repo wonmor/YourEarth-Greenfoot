@@ -1,8 +1,10 @@
 #BlueJ class context
 comment0.target=Menu
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Menu\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ This\ is\ a\ class\ that\ contains\ all\ the\ menu\ elements\ that\ appear\ on\ launch.\r\n\ \r\n\ @author\ John\ Seong\r\n\ @version\ 1.0\r\n
 comment1.params=
 comment1.target=Menu()
+comment1.text=\r\n\ Create\ a\ new\ world\ with\ 600x400\ cells\ with\ a\ cell\ size\ of\ 1x1\ pixels.\r\n\ \r\n\ @since\ 1.0\r\n
 comment2.params=
 comment2.target=void\ prepare()
+comment2.text=\r\n\ Adds\ all\ the\ objects\ and\ UI\ elements\ that\ appear\ on\ screen,\ whicn\ include\ the\ celestial,\ randomly\ generated\ stars,\ asteroid\ and\ its\ trace,\ etc.\r\n\ \r\n\ @since\ 1.0\r\n
 numComments=3

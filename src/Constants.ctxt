@@ -1,4 +1,4 @@
 #BlueJ class context
 comment0.target=Constants
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Constants\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ This\ class\ contains\ all\ the\ constants\ that\ will\ be\ used\ in\ the\ game.\r\n\ Having\ centralized\ static\ variables\ allow\ the\ developers\ more\ control\ over\ the\ code,\r\n\ including\ improved\ readability\ and\ ease\ of\ maintenence.\r\n\ \r\n\ @author\ John\ Seong\r\n\ @version\ 1.0\r\n
 numComments=1

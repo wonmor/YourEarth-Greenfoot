@@ -27,6 +27,18 @@ public class UIElement extends GameObject {
     
     private boolean onClickEvent;
     
+    /**
+     * A constructor for the UIElement class.
+     * On initialization, it creates an empty asteroidList array,
+     * as well as setting the sprite image that will be shown on the window.
+     * 
+     * @param imageName the name of the image that will be displayed
+     * @param onClickEvent whether the UIElement is clickable or not
+     * @param scaleFactorX the scale factor in the x-direction
+     * @param scaleFactorY the scale factor in the y-direction
+     * 
+     * @since 1.0
+     */
     protected UIElement(String imageName, boolean onClickEvent, int scaleFactorX, int scaleFactorY) {
         this.imageName = imageName;
         this.onClickEvent = onClickEvent;
@@ -36,10 +48,13 @@ public class UIElement extends GameObject {
         this.draw(imageName, scaleFactorX, scaleFactorY);
     }
     
-    /*
-     * Below are the setters
-     * that will be used globally
-     * throughout the program.
+    /**
+     * Below are the setters that will be used globally throughout the program,
+     * allowing interaction between different classes.
+     * 
+     * @param game the currentWorld instance, in this case the Game
+     * 
+     * @since 1.0
      */
     
     public void setGameInstance(Game game) {
@@ -63,6 +78,15 @@ public class UIElement extends GameObject {
         this.collider = collider;
     }
     
+    /**
+     * This method displays the spite image on the display.
+     * 
+     * @param imageName the name of the image
+     * @param scaleFactorX the scale factor in the X-direction
+     * @param scaleFactorY the scale factor in the Y-direction
+     * 
+     * @since 1.0
+     */
     public void draw(String imageName, int scaleFactorX, int scaleFactorY) {
         setImage(new GreenfootImage(imageName));
         
@@ -72,6 +96,13 @@ public class UIElement extends GameObject {
         setImage(image);
     }
     
+    /**
+     * This method runs every frame, and it determines individualized custom behaviour
+     * for each UIElement in the window. It utilizes the switch-case statement to seperate
+     * the actions that each UIElement will trigger.
+     * 
+     * @since 1.0
+     */
     public void act() {
         boolean clicked = this.onClickEvent && Greenfoot.mouseClicked(this);
     
@@ -87,7 +118,7 @@ public class UIElement extends GameObject {
                     if (this.asteroidList.isEmpty()) { return; }
                     
                     for (Asteroid r : this.asteroidList) {
-                        r.changeSizeOfSun(0.7);
+                        r.changeSizeOfCelestial(0.7);
                     }
                     
                     this.celestial.scaleFactor++;
@@ -107,7 +138,7 @@ public class UIElement extends GameObject {
                     if (this.celestial == null && this.collider == null) { return; }
                     
                     for (Asteroid r : this.asteroidList) {
-                        r.changeSizeOfSun(1.3);
+                        r.changeSizeOfCelestial(1.3);
                     }
                     
                     this.celestial.scaleFactor--;
@@ -142,11 +173,6 @@ public class UIElement extends GameObject {
                     this.draw("playButton.png", 4, 4);
                 }
                 break;
-            default:
-                if (this.game == null) { return; }
-                
-                // Prevent the UI element overlap dysfunction error...
-                this.game.addUIElements();
         }
     }
 }

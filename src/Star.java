@@ -1,18 +1,22 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Trajectory here.
+ * This is a class that defines the object that composes the trajectory of the asteroid
+ * AND the background decors (the randomized stars in the background).
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author John Seong
+ * @version 1.0
  */
-public class Star extends GameObject
-{
+public class Star extends GameObject {
     /**
-     * Act - do whatever the Trajectory wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * A constructor for the Star class.
+     * On initialization, it sets the image sprite and displays it on the main window.
+     * The colour of the star is randomized based upon the available options.
+     * 
+     * @param c the colour that the star is going to be
+     * 
+     * @since 1.0
      */
-    
     public Star(Color c) {
         GreenfootImage image = new GreenfootImage(Constants.sunDefaultWidth, Constants.sunDefaultHeight);
         

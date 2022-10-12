@@ -20,26 +20,54 @@ public class Game extends World {
     
     private Scoreboard scoreboard;
 
+    /**
+     * Create a new world with 600x400 cells with a cell size of 1x1 pixels.
+     * 
+     * @since 1.0
+     */
     public Game() {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(Constants.screenWidth, Constants.screenHeight, 1);
         
         this.prepare();
     }
-
+    
+    /**
+     * Generate a random number based upon the limits set by the parameters.
+     * 
+     * @param min the minimum threshold for the random number to be
+     * @param max the maximum threshold for the random number to be
+     * 
+     * @return the random number that is generated
+     * 
+     * @since 1.0
+     */
     public static int getRandomNumber(int min, int max) {
         return (int) ((Math.random() * (max - min)) + min);
     }
     
+    /**
+     * Generate a random number based upon the limits set by the parameters.
+     * 
+     * @param min the minimum threshold for the random number to be
+     * @param max the maximum threshold for the random number to be
+     * 
+     * @return the random number that is generated
+     * 
+     * @since 1.0
+     */
     public static double getRandomNumber(double min, double max) {
         return (double) ((Math.random() * (max - min)) + min);
     }
 
     /**
-     * Prepare the world for the start of the program.
-     * That is: create the initial objects and add them to the world.
+     * Adds all the objects and UI elements that appear on screen.
+     * 
+     * @since 1.0
      */
     private void prepare() {
+        // Sets the z-indices of all the graphical elements in-game...
+        setPaintOrder(new Class[] {UIElement.class, Scoreboard.class, Asteroid.class, Star.class, Collider.class, Celestial.class});
+            
         GreenfootImage background = getBackground(); // Create Image
 
         background.setColor(Color.BLACK); // Add Background color
@@ -69,6 +97,11 @@ public class Game extends World {
         this.db.setAsteroidInstance(this.levels.asteroidList);
     }
     
+    /**
+     * Add all the UI elements to the screen, which include the button control.
+     * 
+     * @since 1.0
+     */
     public void addUIElements() {
         this.ct = new ContainerText();
         this.addObject(this.ct, getWidth() / 2 + 10, getHeight() - getHeight() / 20);
@@ -79,7 +112,15 @@ public class Game extends World {
         this.db = new DecreaseButton(this.c, this, this.collider);
         this.addObject(this.db, getWidth() / 2 - 20, getHeight() - getHeight() / 8);
     }
-    
+
+    /**
+     * Logs the cartesian coordinates on the console.
+     * 
+     * @param x the x-coordinate
+     * @param y the y-coordinate
+     * 
+     * @since 1.0
+     */
     public static void logCoords(int x, int y) {
         System.out.println("x: " + x);
         System.out.println("y: " + y);

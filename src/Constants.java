@@ -2,10 +2,12 @@ import java.util.Map;
 import java.util.HashMap;
 
 /**
- * Write a description of class Constants here.
+ * This class contains all the constants that will be used in the game.
+ * Having centralized static variables allow the developers more control over the code,
+ * including improved readability and ease of maintenence.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author John Seong
+ * @version 1.0
  */
 public class Constants  
 {
