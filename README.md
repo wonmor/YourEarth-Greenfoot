@@ -40,3 +40,8 @@ WHY THIS PROJECT DESERVES A 4+:
 It also demonstrates great level of optimization by featuring blazingly fast calculation performance despite it not being written in lower level languages such as C++.
 2. By providing a visual aid for students who might be taking Gr. 12 Physics, it helps them understand the concepts much faster and clearer than the textbook.
 ```
+
+![Your_Earth_UML_Diagram](https://user-images.githubusercontent.com/35755386/195248833-34672006-7c0e-457e-8995-eca04ed12f0d.png)
+
+
+
