@@ -13,6 +13,12 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @version 1.0
  */
 public class ContainerText extends UIElement {
+    /**
+     * A constructor for the ContainerText class.
+     * It selects the image and sends it to the parent class.
+     * 
+     * @since 1.0
+     */
     public ContainerText() {
         super("massText.png", false, 2, 2);
     }

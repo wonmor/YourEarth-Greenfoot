@@ -13,6 +13,12 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @version 1.0
  */
 public class PlayButton extends UIElement {
+    /**
+     * A constructor for the PlayButton class.
+     * It selects the image and sends it to the parent class.
+     * 
+     * @since 1.0
+     */
     public PlayButton() {
         super("playButton.png", true, 4, 4);
     }

@@ -15,6 +15,16 @@ import java.util.concurrent.CopyOnWriteArrayList;
  */
 
 public class DecreaseButton extends UIElement {
+    /**
+     * A constructor for the DecreaseButton class.
+     * It sets the variables to point instances (e.g. celestial, current world, and the collider).
+     * 
+     * @param celestial the Earth object located on the centre of the screen
+     * @param g the current world instance, which in this case is Game
+     * @param collider the collider object that detects asteroid-Earth collision
+     * 
+     * @since 1.0
+     */
     public DecreaseButton(Celestial celestial, Game g, Collider collider) {
         super("decreaseButton.png", true, 5, 5);
         

@@ -13,6 +13,12 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @version 1.0
  */
 public class Logo extends UIElement {
+    /**
+     * A constructor for the Logo class.
+     * It selects the image and sends it to the parent class.
+     * 
+     * @since 1.0
+     */
     public Logo() {
         super("logo.png", false, 2, 2);
     }

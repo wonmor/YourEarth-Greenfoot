@@ -13,6 +13,14 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @version 1.0
  */
 public class YouLostMessage extends UIElement {
+    /**
+     * A constructor for the YouLostMessage class.
+     * It selects the image and sends it to the parent class.
+     * 
+     * @param r the current asteroid instance
+     * 
+     * @since 1.0
+     */
     public YouLostMessage(Asteroid r) {
         super("youLostText.png", false, 2, 2);
         super.setAsteroidInstance(r);

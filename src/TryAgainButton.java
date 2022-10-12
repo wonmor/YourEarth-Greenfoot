@@ -13,6 +13,14 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @version 1.0
  */
 public class TryAgainButton extends UIElement {
+    /**
+     * A constructor for the TryAgainButton class.
+     * It selects the image and sends it to the parent class.
+     * 
+     * @param r the current Asteroid instance
+     * 
+     * @since 1.0
+     */
     public TryAgainButton(Asteroid r) {
         super("tryAgainButton.png", true, 4, 4);
         super.setAsteroidInstance(r);
