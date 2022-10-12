@@ -52,6 +52,8 @@ public class Celestial extends GameObject {
      * 
      * @since 1.0
      */
+    
+    @Override
     public void act() {
         if (this.game == null) { return; }
         

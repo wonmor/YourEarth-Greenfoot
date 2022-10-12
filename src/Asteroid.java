@@ -233,6 +233,8 @@ public class Asteroid extends GameObject {
      * 
      * @since 1.0
      */
+    
+    @Override
     public void act() {
         // Don't render after the failure message appeared...
         if (this.isPlaying) {            

@@ -60,6 +60,8 @@ public class Scoreboard extends GameObject {
      * 
      * @since 1.0
      */
+    
+    @Override
     public void act() {
         if (!this.whetherFinal) { super.runFadeOut(this.game, this.getClass()); }
     }

@@ -3,4 +3,5 @@ comment0.target=YouLostMessage
 comment0.text=\r\n\ This\ is\ a\ centralized\ class\ that\ handles\ all\ the\ UI\ elements\ on\ the\ game\ screen.\r\n\ It\ effectively\ utilizes\ Java's\ core\ functionality\:\ Polymorphism.\r\n\ \r\n\ Not\ only\ that,\ by\ creating\ two\ methods\ that\ accept\ different\ types\ of\ parameters\ but\ share\ the\ same\ name,\r\n\ the\ program\ uses\ Method\ Overriding\ design\ pattern\ as\ well.\r\n\ \r\n\ A\ guard\ clause\ is\ used\ instead\ of\ complex,\ nested\ if\ statements\ for\ syntactic\ sugar\ (better\ readability).\r\n\ \r\n\ @author\ John\ Seong\ \r\n\ @version\ 1.0\r\n
 comment1.params=r
 comment1.target=YouLostMessage(Asteroid)
+comment1.text=\r\n\ A\ constructor\ for\ the\ YouLostMessage\ class.\r\n\ It\ selects\ the\ image\ and\ sends\ it\ to\ the\ parent\ class.\r\n\ \r\n\ @param\ r\ the\ current\ asteroid\ instance\r\n\ \r\n\ @since\ 1.0\r\n
 numComments=2

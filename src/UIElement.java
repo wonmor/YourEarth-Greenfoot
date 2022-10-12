@@ -103,6 +103,8 @@ public class UIElement extends GameObject {
      * 
      * @since 1.0
      */
+    
+    @Override
     public void act() {
         boolean clicked = this.onClickEvent && Greenfoot.mouseClicked(this);
     
